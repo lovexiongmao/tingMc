@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+     body{
+        font-size:12px;
+        font-family:Microsoft YaHei, Lucida Grande, "微软雅黑";
+        color:#333333;        
+        background:url("http://img.tingmc.com/img/2012/08/BG_2.jpg"),
+        url(images/cropped-BG22.jpg) no-repeat;
+        background-position:-310px 40px;
+        background-attachment:fixed;
+         /*filter: blur(2px);*/
+     }
+     *{
+        margin:0;
+        padding:0;
+     }
+     a{
+        text-decoration:none;
+        color:#c1c1c1;
+     }
+     #header{
+        width:100%;
+        height:55px;
+        background:url(images/topbg.png) repeat-x;
+        /*position:fixed;*/
+        /*z-index:10;*/
+     } 
+     .navbar{
+        width:950px;
+        height:55px;
+        margin:0 auto;
+
+     }
+     .navigation{
+        margin-left:10px;
+        height:49px;
+        float:left;
+     }
+     .navigation ul li{
+        list-style-type:none;
+        float:left;
+        width:100px;
+        height:49px;
+        margin-left:2px;
+        /*background:pink;*/
+        transition:all 0.25s ease;
+     }
+     .navigation ul li a{
+        display:block;
+         height:49px;
+        line-height:55px;
+        transition:all 0.25s ease;
+       /* text-shadow:0px 1px 0px rgba(0,0,0,0.1);*/
+     }
+     .navigation ul li a span{
+        float:left;
+        width:39px;
+        height:30px;
+        margin:13px 4px 0px 14px;
+     }
+     .navigation ul li:first-child span{
+        background: url(images/tingicos.png) no-repeat -72px 0px;
+        transition:all 0.25s ease;
+     }
+     .navigation ul li:first-child:hover span{
+         background-position:-72px -113px;
+     }
+     .navigation ul li:first-child+li span{
+          background: url(images/tingicos.png) no-repeat -76px -764px;
+          transition:all 0.25s ease;
+      }
+     .navigation ul li:first-child+li:hover span{
+         background-position:-76px -734px;
+     }
+     .navigation ul li:first-child+li+li span{
+         background: url(images/tingicos.png) no-repeat -76px -603px;
+         transition:all 0.25s ease;
+     }
+     .navigation ul li:first-child+li+li:hover span{
+         background-position:-76px -664px;
+     }
+     .navigation ul li:first-child+li+li+li span{
+         height:27px;
+         background: url(images/tingicos.png) no-repeat -72px -30px;
+         transition:all 0.25s ease;
+     }
+     .navigation ul li:first-child+li+li+li:hover span{
+         background-position:-72px -143px;
+     }
+     .navigation ul li:first-child+li+li+li+li span{
+         background: url(images/tingicos.png) no-repeat -76px -573px;
+         transition:all 0.25s ease;
+     }
+     .navigation ul li:first-child+li+li+li+li:hover span{
+         background-position:-76px -634px;
+     }
+     .navigation ul li:first-child+li+li+li+li+li+li span{
+         height:25px;
+         width:39px;
+         background: url(images/tingicos.png) no-repeat -76px -57px;
+         transition:all 0.25s ease;
+     }
+     .navigation ul li:first-child+li+li+li+li+li+li:hover span{
+         background-position:-76px -170px;
+     }
+     .navigation ul li:not(.navsearch):hover{
+        box-sizing:border-box;
+        background:white;       
+        border-bottom:2px solid #a50700;
+     }
+     .navigation ul li:hover a{
+         color:#a60004 !important;
+     }
+
+     .navigation .navsearch{
+        width:112px;
+        box-sizing: border-box;
+        border: 2px solid #212121;
+        border-top:0px;
+         position: relative;
+     }
+     .navigation ul .navsearch span{
+          background: url(images/tingicos.png) no-repeat -76px -704px;
+          transition:all 0.25s ease;
+      }
+     .navigation ul .navsearch:hover{
+         height: 45px;
+         border: 2px solid #313131;
+         border-top:0px;
+         background: #030303;
+     }
+     .navigation ul .navsearch:hover span{
+         margin-top: 8px;
+     }
+     .navigation ul .navsearch:hover a{
+         line-height: 49px;
+     }
+     .navigation ul .navsearch:hover div{
+         display:block;
+     }
+     .navigation ul .navsearch div{
+         width:138px;
+         height:31px;
+         background: url(images/tools.png) no-repeat;
+         padding-top:20px;
+         text-align: center;
+         line-height: 22px;
+         color: white;
+         position: absolute;
+         top:40px;
+         left:-18px;
+         display:none;
+     }
+
+     .naventry{
+        display:inline;
+        float:right;
+        margin-right:10px;
+     }
+     .naventry ul{
+        display:block;
+        line-height:55px;
+     }
+     .naventry ul img{
+        vertical-align:middle;
+     }
+
+     #container{
+        width:100%;
+        height:75px;
+        padding-top:12px;
+        background:rgba(255,255,255,0.8);
+        border-top:49px solid transparent;
+     }
+     .containerin{
+        width:950px;
+        height:100%;
+        margin:0 auto;
+        text-align:center;
+     }
+     .containerin .containimage{
+        width:97px;
+        height:67px;
+        float:left;
+        background:url(images/share.gif) no-repeat 0px -67px;
+        margin-top:8px;
+        
+     }
+     .containerin .desktop{
+        width:73px;
+        height:35px;
+        padding:30px 0px 0px 40px;
+        background:url(images/desktop.png) no-repeat;
+        position:absolute;
+        top:45px;
+        left:20px;
+        display:none;
+     }
+
+     #content{
+        width:950px;
+        height:auto;
+        margin:0 auto;
+     }
+     #content .contentone{
+        width:100%;
+        height:27px;
+        margin-top:10px;
+     }
+     .contonehome{
+        float:left;
+        height:100%;
+        padding-left:30px;
+        background:url(images/tingicos.png) no-repeat -87px -268px;       
+     }
+     .contonehome a{
+        line-height:27px;
+        color:#A60004;
+     }
+     .contoneplay{
+        width:71px;
+        height:26px;
+        line-height:26px;
+        padding-left:36px;
+        cursor:pointer;
+        float:right;
+        margin-right:113px;
+        color:white;
+        background:url(images/play-single.png) no-repeat;
+     }
+     .contoneplay:hover{
+        background:url(images/play-single.png) no-repeat -107px;
+        line-height:27px;
+     }
+     .contonecollect{
+        float:right;
+         width:80px;
+         height:26px;
+
+        /*position:relative;*/
+     }
+      .bds_more{
+        display:block;
+        background: white !important;
+        text-align:center !important;
+        line-height:26px !important;
+        color:#a60004 !important;
+          height: 26px !important;
+          margin: 0px !important;
+          width:80px !important;
+          padding: 0px  !important;
+          background:url(images/clle.gif) !important;
+     }
+     /*.contonecollect:hover .contfavorite{*/
+        /*display:block;*/
+     /*}*/
+     /*.contfavorite{*/
+        /*width:240px;*/
+        /*height:300px;*/
+        /*position:absolute;*/
+        /*top:20px;*/
+        /*left:0px;*/
+        /*z-index: 2;*/
+        /*background:white;*/
+        /*border:1px solid #cccccc;*/
+        /*!*display:none;*!*/
+     /*}*/
+     .favoritetop{
+         width:100%;
+         height:280px;
+         background: pink;
+     }
+     
+     .contentow{
+        width:100%;
+        height:219px;
+        margin-top:10px;
+     }
+     .contentowone{
+        width:100%;
+        height:125px;
+        opacity:0.85;
+        background:pink;
+     }
+     .contentowone a{
+        float:left;
+        width:25%;
+        height:100%;
+        box-sizing:border-box;
+        padding-top:75px;
+        padding-left:108px;
+        color:#83dbee;
+        opacity:1.0;
+        transition:all 0.25s ease;
+     }
+     .contentowone a:nth-of-type(1){
+        background: #399cb1 url(images/index_ico.png) no-repeat 26px 17px;
+     }
+     .contentowone a:nth-of-type(2){
+        background: #39b1af url(images/index_ico.png) no-repeat -186px 17px;
+     }
+     .contentowone a:nth-of-type(3){
+        background: #39b16a url(images/index_ico.png) no-repeat -402px 17px;
+        color:#baeac1;
+     }
+     .contentowone a:nth-of-type(4){
+        background: #934d61 url(images/index_ico.png) no-repeat -634px 17px;
+        color:#ddbccc;
+     }
+     .contentowone a:hover{
+        background-color:#333333;
+        color:white;
+     }
+     .contentowtow{
+        width:100%;
+        height:84px;
+        margin-top:10px;
+        opacity:0.85;
+        background: #ffffff url(images/index_ico.png) no-repeat -698px -141px;
+        position: relative;
+        overflow: hidden;
+     }
+     /*.towscroll{*/
+        /*width:810px;*/
+        /*height:84px;*/
+        /*margin-left:135px;*/
+        /*overflow:hidden;*/
+        /*position:relative;*/
+     /*}*/
+     .towscroll ul{
+        width:810px;
+        margin-left:135px;
+        float:left;
+        position:absolute;
+        top:0px;
+        left:0px;
+     }
+     .towscroll ul li{
+        list-style-type:none;
+        width:100%;
+        height:84px;
+        line-height:84px;
+        text-align:center;
+     }
+     .towscroll ul li a,p{
+        display:inline;
+        color:#333333;
+     }
+     .contenthree{
+        width:100%;
+        display:inline-block;
+        margin-top:10px;
+     }
+     .conthreeone{
+        width:100%;
+        display:inline-block;
+     }
+     .conthreeone ul li{
+        list-style-type:none;
+        float:left;
+        width:295px;
+        height:226px;
+        margin:4px 0px 4px 8px;
+        padding:8px;
+        background-color:#fafafa;
+        border-top:4px solid #39b1af;
+        border-bottom:1px solid #dfdfdf;
+     }
+     .conthreeone ul:nth-of-type(2) li{
+        border-top-color:#39b16a;
+     }
+     .conthreeone .threeonetitle{
+        width:311px;
+        height:242px;
+        background: #39b1af;
+        /*background:rgba(57,177,175,0.1);*/
+        border:0px;
+        margin-left:0px;
+        padding:0px;
+        opacity:0.85;
+     }
+     .threeonetitle h1{
+        font-size:38px;
+        margin:20px 0px 25px 50px;
+        color:white;
+     }
+     .threeonetitle a{
+        display:block;
+        width:217px;
+        height:35px;
+        margin:0 auto;
+        background:url(images/index_ico.png) no-repeat 0px -131px;
+        transition:all 0.25s ease;
+     }
+     .threeonetitle a:hover{
+        background:url(images/index_ico.png) no-repeat -217px -131px;
+     }
+     .threeonetitle div{
+        width:195px;
+        height:75px;
+        padding-left:75px;
+        margin:0 auto;
+        margin-top:25px;
+        background:url(images/index_ico.png) no-repeat 0px -166px;
+        font-size:30px;
+        color:#ffffff;
+        text-align:right;
+        line-height:30px;
+     }
+     .conthreeone ul li:not(.threeonetitle) h1 a{
+        display:block;
+        height:27px;
+        line-height:27px;
+        color:#A60004;
+        font-size:12px;
+        font-weight:500;
+        transition:all 0.25s ease;       
+     }
+     .conthreeone ul li:not(.threeonetitle) h1 a:hover{
+        padding-left:35px;
+        background:url(images/tingicos_03.gif) no-repeat;
+     }
+
+     .threeoneplay{
+        width:100%;
+        height:188px;
+        margin-top:10px;
+        position:relative;
+     }
+     .threeoneplay  .Bedroom{
+           font-size:0px;
+           float:left;
+           margin-left:35px;
+           width:133px;
+           height:133px;
+         overflow: hidden;
+         position: relative;
+     }
+     .threeoneplay .Bedroom img{
+        width:163px;
+        height:133px;
+         position: absolute;
+         left:-25px;
+         transition:all 0.25s ease;
+     }
+     .threeoneplay .Bedroom img:hover{
+        transform:scale(1.2,1.2);
+     }
+     .threeoneplay .playmusic{
+        float:left;
+        width:76px;
+        height:76px;
+        margin-left:25px;
+        margin-top:28px;
+        background:#fcfcfc url(images/tingicos.png) no-repeat 0px -76px;
+        transition:all 0.25s ease;
+     }
+     .threeoneplay a:nth-of-type(2):hover{
+        background-position:0px 0px;
+     }
+     .threeoneplay p{
+        display:inline-block;
+        height:43px;
+        overflow:hidden;
+        padding-left:50px;
+        margin-top:12px;
+        font-size:12px;
+        line-height:21px;
+        background:url(images/tingicos.png) no-repeat -70px -225px;
+     }
+     .threeoneplay .threeonegood{
+        width:308px;
+        height:148px;
+        background:url(images/mask.png) no-repeat;
+        position:absolute;
+        left:13px;
+        top:170px;
+         z-index: 2;
+        display:none;
+        transition-property:display;
+        transition-duration:1s;
+        transition-delay:1s;
+     }
+     .threeoneplay:hover .threeonegood{
+        display:block;
+     }
+     .threeonegood  div:nth-of-type(1){
+        height:40px;
+        background:url(images/mask_ico.png) no-repeat;
+        padding-left:45px;
+        margin-top:30px;
+        margin-left:20px;
+        color:rgb(153,153,153);
+     }
+     .threeonegood div:nth-of-type(2){
+        display:inline-block;
+        height:32px;
+        background:url(images/mask_ico.png) no-repeat 0px -39px;
+        padding-left:35px;
+        margin-top:20px;
+        margin-left:20px;
+        color:#27a7a9;
+        float:left;
+     }
+     .threeonegood div:nth-of-type(2):hover{
+        background:url(images/mask_ico.png) no-repeat 0px -72px;
+     }
+     .threeonegood div:nth-of-type(2) span{
+        line-height:32px;
+        cursor:pointer;
+     }
+     .threeonegood div:nth-of-type(2) span:hover{
+        color:rgb(153,153,153);
+     }
+     .threeonegood .threeonestar{
+        display:inline-block;
+        margin-top:20px;
+        margin-left:10px;
+        text-align:right;        
+        float:left;
+     }
+     .threeonegood .threeonestar span{
+        float:right;
+        font-size:18px;
+        color:#A60004;
+        font-family: 'icomoonstar';
+        cursor:pointer;
+     }
+     .threeonegood .threeonestar span:hover{
+        color:green;
+         /*触发儿子的hover事件相当于同时也触发了父亲的hover事件*/
+         /*只改变当前span的字体颜色，改变不了儿子span的字体颜色，因为里面的span字体颜色优先级高*/
+     }
+     @font-face {
+        font-family: 'icomoonstar';
+        src:  url('icons/star/fonts/icomoon.eot?c9gl7h');
+        src:  url('icons/star/fonts/icomoon.eot?c9gl7h#iefix') format('embedded-opentype'),
+        url('icons/star/fonts/icomoon.ttf?c9gl7h') format('truetype'),
+        url('icons/star/fonts/icomoon.woff?c9gl7h') format('woff'),
+        url('icons/star/fonts/icomoon.svg?c9gl7h#icomoon') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+     .threeonegood a{
+        display:inline-block;
+        color:#878787;
+        font-size:25px;
+        margin-top:25px;
+        margin-left:10px;
+        float:left;
+     }
+
+     .contentfour{
+         display:inline-block;
+         width:100%;
+         margin-top:10px;
+         font-size: 0px;
+     }
+     .contentfour .contfourMV{
+         display:inline-block;
+         width:100%;
+     }
+     .fourMVtitle{
+         height:90px;
+         opacity: 0.9;
+         border-bottom:4px solid #934d6e;
+     }
+     .fourMVtitleone {
+         float: left;
+         width:180px;
+         height:90px;
+         background:#934d6e;
+     }
+     .fourMVtitleone > a > span:nth-of-type(1){
+         float: left;
+         width:54px;
+         height:54px;
+         margin-top: 20px;
+         margin-left: 40px;
+         opacity:1.0 !important;
+         background:url(images/mv_topico.png) no-repeat;
+     }
+     .fourMVtitleone > a > span:nth-of-type(2){
+         float: left;
+         width:54px;
+         height:54px;
+         margin-top: 20px;
+         font-size: 25px;
+         opacity:1.0 !important;
+         line-height: 50px;
+         text-align: center;
+         color:white;
+     }
+     .fourMVtitle > span{
+         float:right;
+         width:90px;
+         height:33px;
+         margin-top:28px;
+         margin-right: 10px;
+         cursor: pointer;
+         background: url(images/mv_topico.png) no-repeat 0px -277px;
+         transition: all 0.25s ease;
+     }
+     .fourMVtitle > span:hover{
+         background-position: 0px -244px;
+     }
+     .fourMVvideo{
+         width:100%;
+         height:300px;
+         border-bottom:4px solid #934d6e;
+         overflow: hidden;
+     }
+     .fourvideo{
+         width:100%;
+         height:270px;
+         margin:15px 0px;
+         position: relative;
+         overflow: hidden;
+     }
+     .leftvideo{
+         width:52px;
+         height:200px;
+         margin-top: 35px;
+         background: #333333;
+         cursor: pointer;
+         opacity:0.5;
+         transition:all 0.3s ease;
+     }
+     .leftvideo:hover{
+         opacity:0.85;
+     }
+     .leftvideo span{
+         display: block;
+         width:52px;
+         height:80px;
+         margin-top:60px;
+     }
+     .leftvideobtn{
+         position:absolute;
+         left:-52px;
+         top:0px;
+         z-index: 2;
+     }
+     .leftvideobtn span{
+         background: url(images/mv_topico.png) no-repeat -197px -206px;
+     }
+     .rightvideobtn{
+         position:absolute;
+         right:-52px;
+         top:0px;
+         z-index: 2;
+     }
+     .rightvideobtn span{
+         background: url(images/mv_topico.png) no-repeat -197px 0px;
+     }
+     .videoMVone{
+         position: absolute;
+         left:0px;
+     }
+
+     .contfourcover{
+         width:100%;
+         height:148px;
+         margin-top:10px;
+         margin-bottom:10px;
+     }
+     .contfourcover .fourcoverone{
+         width:284px;
+         height:100%;
+         background: #8a373a;
+         opacity: 0.85;
+         float:left;
+     }
+     .fourcoverone span{
+         float: left;
+         width:258px;
+         height:72px;
+         margin-top: 38px;
+         margin-left: 13px;
+         background:url(images/index_ico.png) no-repeat 0px -241px;
+     }
+     .contfourcover .fourcovertow{
+         width:666px;
+         height:100%;
+         float:left;
+     }
+     .fourcovertow a{
+         display:block;
+         float: left;
+     }
+     .fourcovertow a img{
+         width:74px;
+         height:74px;
+     }
+
+     #scrollarrow{
+         width:55px;
+         height:55px;
+         position: fixed;
+         right:50%;
+         top:80%;
+         background: url(images/top.png) no-repeat;
+         margin-right: -545px;
+         cursor: pointer;
+     }
+
+
+     #footer{
+         width:100%;
+         height:244px;
+         margin-top: 10px;
+         background: #232323;
+         text-shadow:0px -1px 0px #000000;
+         font-weight: normal;
+     }
+     .footerin{
+         width:950px;
+         height:100%;
+         margin:0 auto;
+     }
+     .footerinter{
+         width:100%;
+         height:170px;
+         padding:30px 0px;
+         box-sizing: border-box;
+         border-bottom: 1px solid #101010;
+     }
+     .footerinone{
+         width:50%;
+         height:110px;
+         float: left;
+     }
+     .footerinone h3{
+         font-size: 12px;
+         float: left;
+         text-align: right;
+         color:#999999;
+     }
+     .footerinone h3 span{
+         width:52px;
+         height:80px;
+         margin-left: 28px;
+         float: left;
+         background: url(images/foot_ico.png) no-repeat;
+     }
+     .footerinoneul{
+         float: left;
+         margin-left: 25px;
+         width:360px;
+         line-height: 22px;
+     }
+     .footerinone ul li{
+         list-style-type: none;
+         float: left;
+         margin-left: 2px;
+         margin-right: 2px;
+         color:#999999;
+     }
+     .footerouter{
+         width:100%;
+         height:62px;
+         padding-top:10px;
+         border-top:1px solid #3b3b3b;
+         text-align: center;
+         line-height: 22px;
+         color:#999999;
+     }
+     .footerouter a{
+         color:#999999;
+     }
+
+
+    </style>
+</head>
+<body>
+    <style>
+        #headtool{
+            width:100%;
+            height:auto;
+            position: fixed !important;
+            top:0px;
+            z-index:10;
+        }
+        #headslide{
+            width:100%;
+            height:auto;
+            background: url(images/top_bg_d.png) repeat-x;
+            display:none;
+        }
+        .headerslidein{
+            width:100%;
+            height:auto;
+            background: url(images/top_bg.png) no-repeat center top;
+        }
+        .headslideinter{
+            width:950px;
+            height:457px;
+            overflow: hidden;
+            margin:0 auto;
+            background: url(images/box_bg.png) no-repeat 31px 13px;
+        }
+        .slidelabel{
+            width:597px;
+            height:282px;
+            margin-top: 15px;
+            margin-left: 36px;
+            float: left;
+            background: #fdfdc9 url(images/cloud.gif) repeat-x;
+        }
+        .slidelabel h3{
+            width:523px;
+            height:51px;
+            padding-left: 15px;
+            background: url(images/cloud_h3.gif) no-repeat;
+            font-size: 18px;
+            font-weight: normal;
+            line-height: 40px;
+        }
+        .slidelabel .labelfont{
+            float: left;
+            margin:15px;
+        }
+        .headslideinter .calendar{
+            float:left;
+            width:264px;
+            height:266px;
+            margin-top: 15px;
+            margin-left: 25px;
+        }
+        .headslideinter .slidesearch{
+            float: left;
+            width:605px;
+            height:auto;
+        }
+        .slidesearch > div:first-child{
+            width:100%;
+            height:60px;
+            margin-top: 14px;
+            margin-left: 36px;
+            color: white;
+            background:  url(images/tingmc_cd.png) no-repeat -145px 0px;
+        }
+        .slidesearch > form > div:nth-child(1){
+            width:100%;
+            height:41px;
+            margin-top:18px;
+            margin-left: 36px;
+            background:  url(images/tingmc_cd.png) no-repeat -144px -60px;
+        }
+        .slidesearch  input{
+           display: inline-block;
+            width:535px;
+            height:26px;
+            margin-top:8px;
+            margin-left:6px;
+            line-height: 24px;
+            border: 0px none;
+            background: #eaeaea;
+        }
+        .slidewenxin{
+            width:250px;
+            height: 133px;
+            float: left;
+            margin-left: 55px;
+            background: url(images/atten.png) no-repeat;
+        }
+        .contectplayall{
+            width:100%;
+            height:210px;
+            margin-top: 10px;
+            /*background: pink;*/
+            display: none;
+            overflow: hidden;
+        }
+    </style>
+    <div id="headtool">
+         <div id="headslide">
+             <div class="headerslidein">
+                 <div class="headslideinter">
+                     <div class="slidelabel">
+                         <h3>在标签云中筛选歌曲</h3>
+                         <div class="labelfont"><a href="#"><img src="images/label.jpg" /></a></div>
+                     </div>
+                     <div class="calendar"></div>
+                     <div class="slidesearch">
+                         <div><h2>订阅内容</h2></div>
+                         <form role="search" method="get" action="">
+                             <div>
+                                 <input type="text">
+                             </div>
+                         </form>
+                     </div>
+                     <div class="slidewenxin"></div>
+                 </div>
+             </div>
+         </div>
+         <div id="header">
+        <div class="navbar">
+           <div id="navigation" class="navigation">
+               <ul>
+                   <li>
+                       <a href="#"><span></span>最新</a>
+                   </li>
+                   <li>
+                       <a href="#"><span></span>电台</a>
+                   </li>
+                   <li>
+                       <a href="#"><span></span>单曲</a>
+                   </li>
+                   <li>
+                       <a href="#"><span></span>专辑</a>
+                   </li>
+                   <li>
+                       <a href="#"><span></span>MV</a>
+                   </li>
+                   <li class="navsearch">
+                       <a href="#"><span></span>查找</a>
+                       <div>点开/收起工具箱</div>
+                   </li>
+                   <li>
+                       <a href="#"><span></span>留言</a>
+                   </li>
+               </ul>
+           </div>
+           <div class="naventry">
+               <ul>
+                   <a href="#" title="使用新浪微博"><img src="images/btn_sina.png" /></a> |
+                   <a href="#" title="使用腾讯微博"><img src="images/btn_tqq.png" /></a> |
+                   <a href="#">登录</a> |
+                   <a href="#">注册</a>
+               </ul>
+           </div>
+        </div>
+    </div>
+    </div>
+    <div id="container">
+        <div class="containerin">
+        <a href="#" class="containimage" title="投递音乐"></a>
+        <span style="display:inline-block;position:relative;">
+        <a href="#" title="TingMC-听麦克" style="display:inline-block;">
+           <img src="images/logo.gif" alt="听麦克"  />
+        </a>
+        <div class="desktop"><a href="#" style="color:white;">放到桌面</a></div>
+        </span>
+        </div>
+    </div>
+    <div id="content">
+        <div class="contentone">
+            <span class="contonehome">
+                <a href="#">服务器搬家了，有点问题要解决，比如分享，所以先关闭了。</a>
+            </span>
+            <div class="contonecollect">
+                <!--<a href="#" class="contoneshare">分享/收藏</a>-->
+                <div class="bdsharebuttonbox">
+                    <a href="#"  class="bds_more" data-cmd="more">分享/收藏</a>
+                </div>
+                <script>
+                    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2",
+                        "bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};
+                    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script'))
+                            .src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion' +
+                            '='+~(-new Date()/36e5)];
+                </script>
+                <!--<div class="contfavorite">-->
+                     <!--<div class="favoritetop">-->
+                         <!--<table>-->
+                             <!--<tr>-->
+                                 <!--<td></td>-->
+                                 <!--<td></td>-->
+                             <!--</tr>-->
+                             <!--<tr>-->
+                                 <!--<td></td>-->
+                                 <!--<td></td>-->
+                             <!--</tr>-->
+                         <!--</table>-->
+                     <!--</div>-->
+                     <!--<div class="favoritebotm"></div>-->
+                <!--</div>-->
+            </div>
+            <div title="播放本页所有单曲" class="contoneplay">连播本页</div>
+        </div>
+        <div class="contectplayall">
+             <!--<embed src="http://www.xiami.com/widget/802660_1771579532,1771574203,1771518337,1771368015,-->
+             <!--1771601636,1769831786,1771414611,1771458806,_930_250_000000_ffffff_1/multiPlayer.swf"-->
+                     <!--type="application/x-shockwave-flash" width="930" height="250" wmode="opaque"></embed>-->
+            <img src="images/3.jpg" width="950" height="210" />
+        </div>
+        <div class="contentow">
+            <div class="contentowone">
+                <a href="#">预载30首歌，每次打开都会有新鲜。</a>
+                <a href="#">每日更新好听的音乐，单页歌曲连播。</a>
+                <a href="#">试听与下载，值得收藏就应该存下。</a>
+                <a href="#">高品质MV在线欣赏，超棒的观影模式。</a>
+            </div>
+            <div class="contentowtow">
+                <div class="towscroll">
+                    <ul>
+                        <li>
+                            <a href="#" title="阅读：总有一天我会欺骗你-新裤子">
+                               <p>歌曲名：总有一天我会欺骗你 演唱者：新裤子 专辑：Sex Drugs Internet 大舌头啊。</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="阅读：Nothing In Common-Christopher">
+                               <p>歌曲名：Nothing In Common 演唱者：Christopher 专辑：Nothing In Common 迷人的声线。</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="阅读：I’m Yours -大橋トリオ">
+                               <p>歌曲名：I’m Yours 演唱者：大橋トリオ 专辑：EFAKE BOOK 果然是大叔的味道，没有原版的轻快，却是轻柔，很舒服。</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="阅读：Drive By -Train ">
+                               <p>歌曲名：Drive By 演唱者：Train 专辑：Drive By 听这个心情会变好，Patrick的声音好让人着迷。</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="contenthree">
+            <div class="conthreeone">
+                <ul>
+                    <li class="threeonetitle">
+                        <h1>单曲</h1>
+                        <a href="#"></a>
+                        <div>星期六 / 下午<br><font size="2">2016.7.13</font></div>
+                    </li>
+
+                </ul>
+                <ul>
+                    <li class="threeonetitle" style="background-color:#39b16a;">
+                        <h1>专辑</h1>
+                        <a href="#"></a>
+                        <div>星期六 / 上午<br><font size="2">2016.1.16</font></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="contentfour">
+            <div class="contfourMV">
+                <div class="fourMVtitle">
+                    <div class="fourMVtitleone">
+                        <a href="#">
+                            <span></span>
+                            <span>MV</span>
+                        </a>
+                    </div>
+                    <span></span>
+                </div>
+                <div class="fourMVvideo">
+                    <div class="fourvideo">
+                        <div class="leftvideobtn leftvideo">
+                            <span></span>
+                        </div>
+                        <div class="rightvideobtn leftvideo">
+                            <span></span>
+                        </div>
+                        <p class="videoMVone">
+                            <embed src="http://www.tudou.com/v/Qyyd9Rnpb08/&resourceId=0_05_05_99&bid=05/v.swf"
+                                   type="application/x-shockwave-flash" allowscriptaccess="always"
+                                   allowfullscreen="true" wmode="opaque" width="470" height="270">
+                            </embed>
+                            <!--<span style="display: block;width:470px;height:270px;background:green;"></span>-->
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="contfourcover">
+                <div class="fourcoverone">
+                    <span>封面集</span>
+                </div>
+                <div class="fourcovertow">
+                    <!--<a href="#" title="I’d Rather – Liz Lawrence">-->
+                        <!--<img src="images/Bedroom-Hero.jpg" alt="I’d Rather – Liz Lawrence" />-->
+                    <!--</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="scrollarrow" title="回到顶部"></div>
+    <div id="footer">
+         <div class="footerin">
+             <div class="footerinter">
+                 <div class="footerinone">
+                     <h3><span></span><br>友情链接</h3>
+                     <ul class="footerinoneul">
+                         <li><a href="#">三友硅藻泥</a> | </li>
+                         <li><a href="#">两个人的守望</a> | </li>
+                         <li><a href="#">寻音乐</a> | </li>
+                         <li><a href="#">搞笑视频</a> | </li>
+                         <li><a href="#">泪点音乐</a> | </li>
+                         <li><a href="#">潮音乐</a> | </li>
+                         <li><a href="#">酷讯数码</a> | </li>
+                     </ul>
+                 </div>
+                 <div class="footerinone">
+                     <h3><span></span><br>每天有进步</h3>
+                     <div class="footerinoneul">
+                         <a href="#" title="阅读全文">. 2016.4.23- 增加音乐盒功能 </a><br>
+                         <a href="#" title="阅读全文">. 2016.8.24 - 加听麦克的微信公众账号为好友吧！ </a><br>
+                         <a href="#" title="阅读全文">. 2016.6.26 - 首页增加榜单以及修改MV排版 </a><br>
+                         <a href="#" title="阅读全文">. 2016.6.06 - 开放音乐投递功能 </a><br>
+                         <a href="#" title="阅读全文">. 2016.5.12 - 已加入Q+应用，各位博主也可以调用此应用 </a>
+                     </div>
+                 </div>
+             </div>
+             <div class="footerouter">
+                 <a href="#">意见反馈</a> |
+                 <a href="#">申请编辑</a> |
+                 <a href="#" title="投递音乐">投递音乐</a> |
+                 <a href="#">关于TingMC</a> |
+                 <a href="#">新浪微博</a> |
+                 <a href="#">腾讯微博</a> |
+                 <a href="#">豆瓣小组</a><br>
+                 © 主题及ICO（图标）设计归TingMC.com所有，任何个人或者企业不得复制盗用，
+                 <a href="#" title="Semantic Personal Publishing Platform">使用WordPress强力推动</a>
+                 <a href="#" title="51.La 网站流量统计系统">网站统计</a>
+             </div>
+         </div>
+    </div>
+</body>
+<link rel="stylesheet" href="css/jquery-ui.css">
+<script type="text/javascript" src="jquery-3.0.0.js"></script>
+<script type="text/javascript" src="jquery-ui.js"></script>
+<script>
+    $(function(){
+       $(".navsearch").click(function(){
+          $("#headslide").slideToggle(500);
+       });
+    });
+</script>
+<script>
+    $(function(){
+        $(".calendar").datepicker({
+            "autoSize":"false",
+        });
+        $(".ui-datepicker").css({
+           "float":"left",
+            "width":"264px",
+            "height":"266px",
+        });
+    });
+</script>
+<script type="text/javascript">
+//    window.onload=function(){
+//        var navigation=document.getElementById("navigation");
+//        var nav=navigation.childNodes[1];
+//        var navi=nav.childNodes;
+//        for(var i=0;i<navi.length;i++){
+//            if(navi[i].nodeType==1){
+//                var navig=navi[i].firstChild.nextSibling.firstChild;
+//                navig.style.background="yellow url(images/tingicos.png) no-repeat"
+//                navig.style.backgroundPositionX="-72px"
+//                navig.style.backgroundPositionY=-i*29+"px";
+//                var navigat=navig.style.backgroundPosition;
+//                console.log(navigat);
+//            };
+//        };
+//    };
+</script>
+<script>
+    $(function(){
+        $("#container").mouseover(function() {
+            $(".desktop").fadeIn(550);
+        });
+        $("#container").mouseleave(function() {
+            $(".desktop").fadeOut(500);
+        });
+    });
+</script>
+<script>
+    $(function(){
+        $(".contoneplay").click(function(){
+            $(".contectplayall").slideToggle(500);
+        });
+    });
+</script>
+<script>
+    $(function(){
+//        var i=0;
+//        for(var i=0;i<4;i++){
+//            $(".towscroll ul li").eq(i).css({
+//                "position":"absolute",
+//                "top":(84*i)+"px",
+//            });
+//        }
+        function towscroll(){
+//            $(".towscroll ul li").each(function(index){
+//                var $li=$(".towscroll ul li").eq(index).position().top;
+//                $(this).animate({"top":($li-84)+"px"},500);
+//                var $li0=$(".towscroll ul li").eq(0).position().top;
+//                if($li0==-252){
+//                    $(this).animate({"top":($li+84)+"px"},500);
+//                }
+//            });
+            var $positionul=$(".towscroll ul").position().top;
+//            if($positionul!=-252){
+                $(".towscroll ul").animate({"top":$positionul-84+"px"},1000,"linear",function(){
+                    $(".towscroll ul li").eq(0).appendTo(".towscroll ul");
+                    $(".towscroll ul").css("top","0px");
+                });
+ //           }
+//            else{
+//                $(".towscroll ul").css("top","0px");
+//            }
+            setTimeout(towscroll,3000);
+
+        };
+//         $(".towscroll").click(function(){
+//             towscroll();
+//         });
+       setTimeout(towscroll,3000);
+
+    });
+
+</script>
+<script src="artTemplate.js"></script>
+<script id="playTemp" type="text/html">
+    <li>
+        <h1><a href="#">{{name}}</a></h1>
+        <div class="threeoneplay">
+            <a class="Bedroom" href="#"><img src={{img}} /></a>
+            <a class="playmusic" href="#" title="播放音乐"></a>
+            <p>{{title}}</p>
+            <div class="threeonegood">
+                <div >分享到</div>
+                <div><span>添加到音乐盒</span></div>
+                                <span class="threeonestar">
+                                    <span href="#" title="恶心">
+                                        <span href="#" title="不能听">
+                                             <span href="#" title="还行">
+                                                  <span href="#" title="好听">
+                                                       <span href="#" title="值得推荐"><span class="threehalfstar" ></span></span>
+                                                  </span>
+                                             </span>
+                                        </span>
+                                    </span>
+                                    <br><font>{{textone}}</font>
+                                </span>
+                <a><em>{{texttow}}</em></a>
+            </div>
+        </div>
+    </li>
+</script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: "h5-2.json",
+            method: "get",
+            dataType: "json",
+            success: function (values) {
+
+                $.each(values, function (i, data) {
+                    var $li = $(template("playTemp", data));
+                    if (i < 8) {
+                        $(".conthreeone ul:first").append($li);
+                    } else {
+                        $(".conthreeone ul:eq(1)").append($li);
+                    }
+                });
+                $(".conthreeone ul:first li").eq(3).css("margin-left", "0px").end()
+                        .eq(6).css("margin-left", "0px")
+                $(".conthreeone ul:eq(1) li").eq(3).css("margin-left", "0px");
+                $(".conthreeone ul li").each(function (index) {
+
+                var $star = $(".conthreeone ul li").eq(index).find(".threehalfstar").parentsUntil(".threeonestar");
+//                  alert($star.eq(0).text());
+                var $text = $(".conthreeone ul li").eq(index).find(".threeonestar font").text();
+                //alert($text);
+     //           var textone = ["值得推荐", "好听", "还行", "不能听", "恶心"]
+                    $star.on("mouseover", function (e) {
+                        e.stopPropagation();
+//                           var $this=$(this).index();
+//                           alert($this);
+                        var $title = $(this).attr("title");
+                        $(".conthreeone ul li").eq(index).find(".threeonestar font").text($title);
+                    });
+                    $star.on("mouseout", function () {
+                        $(".conthreeone ul li").eq(index).find(".threeonestar font").text($text);
+                    });
+                });
+            },
+        });
+    });
+</script>
+<script>
+$(function(){
+    $.ajax({
+        url: "h5-20.json",
+        method: "get",
+        dataType: "json",
+        success: function (values) {
+            for(var i=0;i<values.length;i++){
+                $("<a href='#'></a>").appendTo(".fourcovertow").attr("title",values[i].name);
+                $(".fourcovertow a").eq(i).append("<img>").find("img").attr({
+                   "src":values[i].img,
+                    "alt":values[i].name,
+                });
+            }
+        },
+    });
+})
+</script>
+<script>
+   $(function(){
+      $(".fourvideo").mouseenter(function(){
+           $(".leftvideobtn").animate({left:"0px"},"fast","linear");
+          $(".rightvideobtn").animate({right:"0px"},"fast","linear");
+      });
+       $(".fourvideo").mouseleave(function(){
+           $(".leftvideobtn").animate({left:"-52px"},"fast","linear");
+           $(".rightvideobtn").animate({right:"-52px"},"fast","linear");
+       });
+   });
+</script>
+<script>
+    $(document).ready(function(){
+        for(var i=1;i<6;i++){
+          var $video=$(".videoMVone").clone().attr("class","").css({
+              "position":"absolute",
+              "left":i*480+"px",
+          });
+          //  console.log($video);
+            $video.appendTo(".fourvideo");
+        };
+        var lock=true;
+        $(".leftvideobtn").on("click",function(){
+            if(lock===true){
+                var $posilast=$(".fourvideo p").eq(5).position().left;
+//              alert($posilast);
+                if($posilast!=480){
+                    $(".fourvideo p").each(function(index){
+                        var  $left=$(".fourvideo p").eq(index).position().left;
+                        // alert($left);
+                        $(".fourvideo p").eq(index).animate({"left":$left-480+"px"},500,"linear");
+                    });
+                };
+                lock=false;
+                setTimeout(function(){lock=true;},400);
+            };
+
+        });
+        $(".rightvideobtn").on("click",function(){
+            if(lock===true){
+                var $posifirst=$(".fourvideo p").eq(0).position().left;
+                if($posifirst!=0){
+                    $(".fourvideo p").each(function(index){
+                        var  $left=$(".fourvideo p").eq(index).position().left;
+                        // alert($left);
+                        $(".fourvideo p").eq(index).animate({"left":$left+480+"px"},500,"linear");
+                    });
+                };
+            };
+            lock=false;
+            setTimeout(function(){lock=true;},400);
+        });
+
+    })
+</script>
+<script>
+    $(function () {
+        $("#scrollarrow").css("display","none");
+        $(window).on("scroll",function(){
+            var topmoverange=$("body").scrollTop();
+            if(topmoverange<=100){
+                $("#scrollarrow").css("display","none");
+            }else{
+                $("#scrollarrow").css("display","block");
+            }
+//          alert(topmoverange);
+        });
+        $("#scrollarrow").click(function(){
+            function settimedis(){
+                //         clearTimeout(t);
+                var distance=$("body").scrollTop();
+//           alert(distance);
+                if(distance!=0){
+                    $("body").scrollTop(distance-10);
+                    setTimeout(settimedis,5);
+                };
+            };
+            setTimeout(settimedis,5);
+//            $("body").scrollTop(0);
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(window).resize(function(){
+            var wHeight = $(window).width();//获取可视区域宽度
+            //alert(wHeight);
+            if(wHeight < 950){
+                $("#container,#footer").css("width","950px");
+                // alert($("#tong1").width());
+            }else{
+                $("#container,#footer").width("100%");
+            };
+        });
+
+    });
+</script>
+</html>
